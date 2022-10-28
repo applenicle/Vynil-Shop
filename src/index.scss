@@ -4,9 +4,21 @@
   text-decoration: none;
   list-style: none;
   box-sizing: border-box;
+  color: #f4f4f4;
 }
 body {
   background: #111722;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  font-size: 48px;
+  color: #f4f4f4;
+  margin: 30px 0;
 }
 
 .container {
@@ -21,7 +33,7 @@ body {
   background: #1a202c;
   &__logo {
     margin: auto 0;
-    color: #fff;
+    color: #f4f4f4;
   }
   &__menu {
     display: flex;
@@ -35,17 +47,21 @@ body {
   }
   &__link {
     margin-right: 35px;
-    color: #fff;
+    color: #f4f4f4;
   }
 }
 
 .about {
+  background: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fkrasivie-kartinki.ru%2Fimages%2Fvintazh20.gif&f=1&nofb=1&ipt=0af5b2c69c45e1b4c6f1aed2a240513fdf8d43e80d8e2645d910fe62eb4de475&ipo=images');
+  background-repeat: no-repeat;
+  background-size: cover;
   &__inner {
-    background: #111722;
-    color: #fff;
+    background: rgba(#111722, 0.8);
+    color: #f4f4f4;
     display: flex;
     height: 95vh;
     min-height: 650px;
+
     div {
       max-width: 600px;
       margin: auto;
@@ -72,25 +88,89 @@ body {
     padding: 14px 28px;
     border-radius: 6px;
     background: #1f5fd9;
-    color: #fff;
-    /* background-color: #fec756; */
+    color: #f4f4f4;
+    border: 1px solid #1f5fd9;
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    &-active {
+      margin: 0 16px;
+      padding: 14px 28px;
+      border-radius: 6px;
+      background: none;
+      border: 1px solid #1f5fd9;
+      color: #f4f4f4;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+    }
   }
 }
 
 .card {
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  &__content {
+    margin: 20px 15px;
+    background: #1a202c;
+    border-radius: 12px;
+  }
+  &__image {
+    cursor: pointer;
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+  }
+  &__text {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    h3 {
+      font-weight: 500;
+      color: #f4f4f4;
+      font-size: 18px;
+      margin: 20px 20px;
+    }
+    span {
+      margin-left: auto;
+      color: #bbbbbb;
+      font-size: 18px;
+      margin-right: 20px;
+    }
+  }
+  &__price {
+    margin-left: 22px;
+    align-items: center;
+    display: flex;
+    h3 {
+      font-weight: 500;
+      color: #f4f4f4;
+      font-size: 20px;
+    }
+    span {
+      cursor: pointer;
+      margin-left: auto;
+      img {
+        margin-right: 39px;
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
 }
 
 .footer {
   background-color: #1a202c;
-  padding: 70px 0;
+  padding: 70px 0 0 0;
   &__inner {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 32px;
     div {
+      margin: 0 auto;
       p {
         max-width: 230px;
         color: #bbbbbb;
@@ -100,7 +180,7 @@ body {
   }
   &__title {
     font-size: 18px;
-    color: #ffffff;
+    color: #f4f4f4;
     margin-bottom: 35px;
     font-weight: 500;
     position: relative;
@@ -121,11 +201,121 @@ body {
   &__link {
     line-height: 24px;
     font-size: 16px;
-    color: #ffffff;
+    color: #f4f4f4;
     text-decoration: none;
     font-weight: 300;
     color: #bbbbbb;
     display: block;
     transition: all 0.3s ease;
+  }
+  &__rights {
+    margin-top: 40px;
+    text-align: center;
+    color: #f4f4f4;
+    padding-bottom: 40px;
+  }
+}
+
+.info {
+  &__title {
+    color: #f4f4f4;
+    font-weight: 700;
+    font-size: 48px;
+  }
+  &__content {
+    color: #f4f4f4;
+    p {
+      margin: 30px 0;
+      font-size: 18px;
+    }
+    span {
+      font-weight: 600;
+    }
+  }
+}
+
+.map {
+  margin-bottom: 40px;
+}
+
+.filter {
+  &__item {
+    border: 1px solid #1f5fd9;
+    padding: 13px 30px;
+    border-radius: 30px;
+    margin-right: 10px;
+    cursor: pointer;
+    color: #f4f4f4;
+    background: none;
+    font-size: 18px;
+    &--active {
+      border: 1px solid #1f5fd9;
+      background-color: #1f5fd9;
+      padding: 13px 30px;
+      border-radius: 30px;
+      margin-right: 10px;
+      cursor: pointer;
+      color: #f4f4f4;
+      font-size: 18px;
+      transition: background-color 0.1s ease-in-out;
+    }
+  }
+  &__list {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.not__found {
+  text-align: center;
+  color: #f4f4f4;
+  margin: auto;
+  h3 {
+    font-size: 64px;
+  }
+  p {
+    font-size: 24px;
+    line-height: 36px;
+    margin: 0 40px;
+    a {
+      color: #fec756;
+    }
+  }
+  img {
+    max-width: 600px;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.details {
+  margin: 40px 0;
+  display: flex;
+  &__list {
+    font-size: 18px;
+    li {
+      margin-top: 15px;
+    }
+  }
+  &__inner {
+    margin: auto;
+  }
+  &__title {
+    font-size: 32px;
+  }
+  &__img {
+    height: 600px;
+    width: 100%;
+    object-fit: cover;
+    max-width: 600px;
+  }
+  &__btn {
+    margin-top: 40px;
+    border-radius: 30px;
+    text-align: center;
+    padding: 20px;
+    background: #1f5fd9;
   }
 }

@@ -1,51 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Header from '../Components/Header';
-import Footer from '../Components/Footer';
+import { Header, Footer } from '../Components';
 
 const Home = () => {
   return (
     <div>
       <Header />
-      <section>
+      <div className="about">
         <div className="about__inner">
           <div>
-            <h3 className="about__title">Lorem, ipsum dolor.</h3>
+            <h3 className="about__title">Everyday Things are Colorful</h3>
             <p className="about__text">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus id modi officia
-              fugiat voluptatum dicta a numquam vitae doloremque minima.
+              Once you realize you should enjoy the small things, life changes to being boring to
+              extremly colorful.
             </p>
-            <div className="">
-              <Link to="/" className="about__btn">
-                Try for free
-              </Link>
-              <Link to="/" className="about__btn">
-                Take a tour
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* <section className="about">
-        <div className="container">
-          <div className="about__inner">
             <div>
-              <h3 className="about__title">Далеко-далеко.</h3>
-              <p className="about__text">
-                Далеко-далеко за словесными горами, в стране гласных и согласных живут.
-              </p>
-              <button className="about__btn">Перейти в каталог</button>
+              <Link to="/catalog" className="about__btn">
+                Каталог
+              </Link>
+              <Link to="/contacts" className="about__btn-active">
+                Контакты
+              </Link>
             </div>
-            <img
-              className="about__img"
-              src="https://basis-tp.ru/wp-content/uploads/3/2/8/3280c55bb3c35dd8aca58d3af345f4e4.jpeg"
-              alt="Виниловая пластинка"
-            />
           </div>
         </div>
-      </section> */}
-      <div>
+      </div>
+      {/* <div>
         <div>
           <h3>Акции</h3>
         </div>
@@ -68,7 +49,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       <Footer />
     </div>
   );

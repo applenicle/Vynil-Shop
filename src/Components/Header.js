@@ -16,8 +16,8 @@ const Header = () => {
               </Link>
             </li>
             <li className="header__item">
-              <Link to="/?" className="header__link">
-                Оценка состояния
+              <Link to="/trade" className="header__link">
+                Возврат / Обмен
               </Link>
             </li>
             <li className="header__item">

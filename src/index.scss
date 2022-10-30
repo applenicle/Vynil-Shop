@@ -291,16 +291,18 @@ h6 {
 }
 
 .details {
+  height: 60vh;
   margin: 40px 0;
   display: flex;
+  div {
+    margin: auto;
+  }
   &__list {
+    margin-bottom: 40px;
     font-size: 18px;
     li {
       margin-top: 15px;
     }
-  }
-  &__inner {
-    margin: auto;
   }
   &__title {
     font-size: 32px;
@@ -312,10 +314,16 @@ h6 {
     max-width: 600px;
   }
   &__btn {
-    margin-top: 40px;
     border-radius: 30px;
     text-align: center;
     padding: 20px;
     background: #1f5fd9;
   }
+}
+
+.trade {
+  margin-top: 30px;
+  margin-bottom: 80px;
+  font-size: 18px;
+  line-height: 22px;
 }

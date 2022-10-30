@@ -68,7 +68,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        {/* <div className="footer__rights">&copy; All right reserved</div> */}
+        <div className="footer__rights">&copy; All right reserved</div>
       </div>
     </footer>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import cart from '../cart.svg';
 
 const Card = ({ price, imageUrl, title, country, id }) => {
   return (
@@ -11,13 +12,15 @@ const Card = ({ price, imageUrl, title, country, id }) => {
         <div className="card__inner">
           <div className="card__text">
             <h3>{title}</h3>
-            <span>{country}</span>
           </div>
           <div className="card__price">
-            <h3>{price} ₽</h3>
-            <span>
-              <img src="https://cdn-icons-png.flaticon.com/512/679/679903.png" alt="" />
-            </span>
+            <div className="card__price-text">
+              <span>Цена :</span>
+              <h3>{price} ₽</h3>
+            </div>
+            <div>
+              <img src={cart} alt="" />
+            </div>
           </div>
         </div>
       </div>

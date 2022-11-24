@@ -1,3 +1,5 @@
+$colorMain: #fa586a;
+// 1f5fd9
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +9,7 @@
   color: #f4f4f4;
 }
 body {
-  background: #111722;
+  background: #1f1f1f;
 }
 h1,
 h2,
@@ -19,6 +21,12 @@ h6 {
   font-size: 48px;
   color: #f4f4f4;
   margin: 30px 0;
+  @media (max-width: 375px) {
+    font-weight: 700;
+    font-size: 32px;
+    color: #f4f4f4;
+    margin: 15px 0;
+  }
 }
 
 .container {
@@ -26,17 +34,20 @@ h6 {
   max-width: 1300px;
   padding: 0 15px;
   font-size: 16px;
-  font-family: 'Rubik', sans-serif;
+  // font-family: 'Roboto', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Apple Color Emoji, SF Pro, SF Pro Icons,
+    Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 .header {
-  background: #1a202c;
+  background: #252526;
   &__logo {
-    margin: auto 0;
     color: #f4f4f4;
   }
   &__menu {
+    margin: 0 20px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
   }
   &__list {
@@ -46,14 +57,33 @@ h6 {
     margin: 40px 0;
   }
   &__link {
-    margin-right: 35px;
+    margin: 0 35px;
     color: #f4f4f4;
+  }
+  &__btn {
+    padding: 14px 28px;
+    border-radius: 6px;
+    background: $colorMain;
+    color: #f4f4f4;
+    border: 1px solid $colorMain;
+    text-align: center;
+    text-decoration: none;
+    &:last-child {
+      padding: 14px 28px;
+      border-radius: 6px;
+      background: none;
+      border: 1px solid $colorMain;
+      color: #f4f4f4;
+      text-align: center;
+      text-decoration: none;
+    }
   }
 }
 
 .about {
   background: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fkrasivie-kartinki.ru%2Fimages%2Fvintazh20.gif&f=1&nofb=1&ipt=0af5b2c69c45e1b4c6f1aed2a240513fdf8d43e80d8e2645d910fe62eb4de475&ipo=images');
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   &__inner {
     background: rgba(#111722, 0.8);
@@ -82,23 +112,28 @@ h6 {
     font-size: 22px;
     text-align: center;
     margin-bottom: 40px;
+    @media (max-width: 375px) {
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
   }
   &__btn {
     margin: 0 16px;
     padding: 14px 28px;
     border-radius: 6px;
-    background: #1f5fd9;
+    background: $colorMain;
     color: #f4f4f4;
-    border: 1px solid #1f5fd9;
+    border: 1px solid $colorMain;
     text-align: center;
     text-decoration: none;
     display: inline-block;
+
     &-active {
       margin: 0 16px;
       padding: 14px 28px;
       border-radius: 6px;
       background: none;
-      border: 1px solid #1f5fd9;
+      border: 1px solid $colorMain;
       color: #f4f4f4;
       text-align: center;
       text-decoration: none;
@@ -106,75 +141,78 @@ h6 {
     }
   }
 }
-
 .card {
+  margin-bottom: 50px;
+  background: #2a2a2a;
+  border-radius: 20px;
   &__wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-  }
-  &__content {
-    margin: 20px 15px;
-    background: #1a202c;
-    border-radius: 12px;
+    grid-gap: 20px;
   }
   &__image {
-    cursor: pointer;
-    height: 400px;
     width: 100%;
+    border-radius: 20px 20px 0 0;
     object-fit: cover;
-    border-radius: 12px 12px 0 0;
+  }
+  &__inner {
+    margin: 0 20px;
   }
   &__text {
-    height: 70px;
-    display: flex;
-    align-items: center;
     h3 {
       font-weight: 500;
-      color: #f4f4f4;
-      font-size: 18px;
-      margin: 20px 20px;
-    }
-    span {
-      margin-left: auto;
-      color: #bbbbbb;
-      font-size: 18px;
-      margin-right: 20px;
+      font-size: 26px;
     }
   }
   &__price {
-    margin-left: 22px;
-    align-items: center;
     display: flex;
+    align-items: center;
+    div {
+      img {
+        margin-bottom: 20px;
+        width: 48px;
+        height: 48px;
+        border-radius: 10px;
+      }
+    }
+  }
+  &__price-text {
+    margin-right: auto;
+    text-align: left;
     h3 {
+      margin: 15px 0 20px;
+      font-size: 23px;
       font-weight: 500;
-      color: #f4f4f4;
-      font-size: 20px;
     }
     span {
-      cursor: pointer;
-      margin-left: auto;
-      img {
-        margin-right: 39px;
-        width: 24px;
-        height: 24px;
-      }
+      font-size: 16px;
+      color: #c4c4c4;
     }
   }
 }
 
 .footer {
-  background-color: #1a202c;
+  background-color: #323232;
   padding: 70px 0 0 0;
   &__inner {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 32px;
+    @media (max-width: 375px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
     div {
       margin: 0 auto;
+      @media (max-width: 375px) {
+        margin: 0;
+      }
       p {
         max-width: 230px;
         color: #bbbbbb;
         line-height: 24px;
+        @media (max-width: 375px) {
+          font-size: 24px;
+        }
       }
     }
   }
@@ -184,15 +222,21 @@ h6 {
     margin-bottom: 35px;
     font-weight: 500;
     position: relative;
+    @media (max-width: 375px) {
+      font-size: 32px;
+    }
     &::after {
       content: '';
       position: absolute;
       left: 0;
       bottom: -10px;
-      background-color: #1f5fd9;
+      background-color: $colorMain;
       height: 2px;
       box-sizing: border-box;
       width: 50px;
+      @media (max-width: 375px) {
+        width: 75px;
+      }
     }
   }
   &__item {
@@ -207,6 +251,15 @@ h6 {
     color: #bbbbbb;
     display: block;
     transition: all 0.3s ease;
+    img {
+      margin-left: 5px;
+      width: 25px;
+      height: 25px;
+    }
+    @media (max-width: 375px) {
+      font-size: 24px;
+      margin-bottom: 25px;
+    }
   }
   &__rights {
     margin-top: 40px;
@@ -227,6 +280,9 @@ h6 {
     p {
       margin: 30px 0;
       font-size: 18px;
+      @media (max-width: 375px) {
+        font-size: 15px;
+      }
     }
     span {
       font-weight: 600;
@@ -240,7 +296,7 @@ h6 {
 
 .filter {
   &__item {
-    border: 1px solid #1f5fd9;
+    border: 1px solid $colorMain;
     padding: 13px 30px;
     border-radius: 30px;
     margin-right: 10px;
@@ -248,9 +304,10 @@ h6 {
     color: #f4f4f4;
     background: none;
     font-size: 18px;
+
     &--active {
-      border: 1px solid #1f5fd9;
-      background-color: #1f5fd9;
+      border: 1px solid $colorMain;
+      background-color: $colorMain;
       padding: 13px 30px;
       border-radius: 30px;
       margin-right: 10px;
@@ -291,33 +348,48 @@ h6 {
 }
 
 .details {
-  height: 60vh;
+  min-height: 60vh;
   margin: 40px 0;
   display: flex;
+  flex-wrap: wrap;
   div {
     margin: auto;
   }
   &__list {
     margin-bottom: 40px;
     font-size: 18px;
+    @media (max-width: 375px) {
+      font-size: 24px;
+    }
     li {
       margin-top: 15px;
     }
   }
   &__title {
     font-size: 32px;
+    @media (max-width: 375px) {
+      font-size: 46px;
+      text-align: center;
+    }
   }
   &__img {
     height: 600px;
     width: 100%;
     object-fit: cover;
     max-width: 600px;
+    @media (max-width: 375px) {
+      height: 330px;
+      width: 330px;
+    }
   }
   &__btn {
     border-radius: 30px;
     text-align: center;
     padding: 20px;
-    background: #1f5fd9;
+    background: $colorMain;
+    @media (max-width: 375px) {
+      font-size: 18px;
+    }
   }
 }
 
@@ -326,4 +398,73 @@ h6 {
   margin-bottom: 80px;
   font-size: 18px;
   line-height: 22px;
+}
+
+.login {
+  text-align: center;
+  &__title {
+    font-size: 36px;
+  }
+  &__subtitle {
+    font-size: 24px;
+    font-weight: normal;
+  }
+  &__content {
+    label {
+      margin: 15px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      input {
+        font-size: 18px;
+        border-radius: 12px;
+        border: none;
+        width: 80%;
+        height: 55px;
+        color: #000;
+        padding: 10px;
+      }
+    }
+    div {
+      button {
+        margin-top: 50px;
+        margin-bottom: 20px;
+        width: 80%;
+        height: 55px;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 18px;
+        border-radius: 12px;
+        background: $colorMain;
+        color: #f4f4f4;
+        border: 1px solid $colorMain;
+        text-align: center;
+        text-decoration: none;
+      }
+      a {
+        color: $colorMain;
+      }
+    }
+  }
+}
+
+.leftHalf {
+  margin: 200px 0;
+  width: 50%;
+  position: absolute;
+  left: 0px;
+}
+
+.rightHalf {
+  margin: 200px 0;
+  width: 50%;
+  position: absolute;
+  right: 0px;
+  img {
+    height: 500px;
+    background-position: center;
+    object-fit: cover;
+    width: 100%;
+    background-repeat: no-repeat;
+  }
 }

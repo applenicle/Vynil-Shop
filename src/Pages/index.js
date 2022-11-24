@@ -3,5 +3,7 @@ export { default as Contact } from './Contact';
 export { default as Catalog } from './Catalog';
 export { default as Delevery } from './Delevery';
 export { default as Trade } from './Trade';
+export { default as SignIn } from './SignIn';
+export { default as SignUp } from './SignUp';
 export { default as NotFound } from './NotFound';
 export { default as Details } from './Details';

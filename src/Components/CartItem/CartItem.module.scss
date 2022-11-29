@@ -1,0 +1,73 @@
+$colorMain: #fa586a;
+
+.cart {
+  &Item {
+    width: 100%;
+    display: flex;
+    margin-top: 30px;
+    &:first-child {
+      padding-top: 30px;
+      border-top: 1px solid #c4c4c4;
+    }
+    &:last-child {
+      padding-bottom: 30px;
+      border-bottom: 1px solid #c4c4c4;
+    }
+  }
+  &Img {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    margin-left: 15px;
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+  &Info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+    h3 {
+      margin: 0;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 27px;
+    }
+    p {
+      font-size: 18px;
+      color: #8d8d8d;
+    }
+  }
+  &Counter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 10%;
+    font-size: 18px;
+    button {
+      font-size: 20px;
+      color: $colorMain;
+    }
+  }
+  &Price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 33%;
+    b {
+      font-weight: bold;
+      font-size: 22px;
+    }
+  }
+  &Remove {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 4%;
+    svg {
+      transform: rotate(45deg);
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Card, Header, Footer, Categories } from '../Components';
+import { Card, Categories, Footer, Header } from '../Components';
 
 const Catalog = () => {
   const [item, setItem] = React.useState([]);
@@ -24,7 +24,7 @@ const Catalog = () => {
       <div className="container">
         <Categories category={category} onClickCategory={ChangeCategory} />
         <h3 className="card__title">Пластинки</h3>
-        <div className="card__wrapper">
+        <div className="wrapper">
           {item.map((obj) => (
             <Card className="card__inner" key={obj.id} {...obj} />
           ))}

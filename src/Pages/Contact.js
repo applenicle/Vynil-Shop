@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Footer, Map } from '../Components';
+import { Map, Footer, Header } from '../Components';
 
 const Contact = () => {
   return (

@@ -1,0 +1,42 @@
+.card {
+  margin-bottom: 50px;
+  background: #2a2a2a;
+  border-radius: 20px;
+  &Inner {
+    margin: 0 20px;
+  }
+  &Title {
+    min-height: 70px;
+    font-weight: 500;
+    font-size: 26px;
+  }
+  &Price {
+    display: flex;
+    align-items: center;
+  }
+  &Text {
+    margin-right: auto;
+    text-align: left;
+    h3 {
+      margin: 15px 0 20px;
+      font-size: 23px;
+      font-weight: 500;
+    }
+    span {
+      font-size: 16px;
+      color: #c4c4c4;
+    }
+  }
+  &Image {
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    object-fit: cover;
+  }
+  &Icon {
+    cursor: pointer;
+    margin-bottom: 20px;
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+  }
+}

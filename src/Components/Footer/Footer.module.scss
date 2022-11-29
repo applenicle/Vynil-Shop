@@ -1,0 +1,71 @@
+$colorMain: #fa586a;
+.Footer {
+  background-color: #323232;
+  padding: 70px 0 0 0;
+  &Inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 32px;
+    div {
+      margin: 0 auto;
+      p {
+        max-width: 230px;
+        color: #bbbbbb;
+        line-height: 24px;
+      }
+    }
+    @media (max-width: 375px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  &Title {
+    font-size: 18px;
+    color: #f4f4f4;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      background-color: $colorMain;
+      height: 2px;
+      box-sizing: border-box;
+      width: 50px;
+    }
+  }
+  &Item {
+    margin-bottom: 10px;
+  }
+  &Link {
+    line-height: 24px;
+    font-size: 16px;
+    color: #f4f4f4;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+    img {
+      margin-left: 5px;
+      width: 25px;
+      height: 25px;
+    }
+  }
+  &Rights {
+    margin-top: 40px;
+    text-align: center;
+    color: #f4f4f4;
+    padding-bottom: 40px;
+  }
+}
+
+// .footer {
+
+//   &__inner {
+
+//   }
+
+// }

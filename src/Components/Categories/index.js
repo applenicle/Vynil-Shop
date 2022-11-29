@@ -1,21 +1,22 @@
 import React from 'react';
+import styles from './Categories.module.scss';
 
 const categoriesItem = ['Все', 'Редкие издания', 'Последние поступление', 'Лучшие'];
 
 const Categories = ({ category, onClickCategory }) => {
   return (
-    <div>
-      <ul className="filter__list">
+    <>
+      <ul className={styles.CategoriesList}>
         {categoriesItem.map((obj, i) => (
           <li
             onClick={() => onClickCategory(i)}
-            className={category === i ? 'filter__item--active' : 'filter__item'}
+            className={category === i ? styles.CategoriesItemActive : styles.CategoriesItem}
             key={i}>
             {obj}
           </li>
         ))}
       </ul>
-    </div>
+    </>
   );
 };
 

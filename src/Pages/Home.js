@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-import { Header, Footer } from '../Components';
+import { Footer, Header } from '../Components';
 
 const Home = () => {
   return (

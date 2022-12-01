@@ -1,10 +1,8 @@
 import React from 'react';
-import axios from 'axios';
 import { Card, Footer, Categories, Header } from '../Components';
 import { fetchItems } from '../redux/ItemSlice/asyncAction';
 import { setCategory } from '../redux/CategorySlice/slice';
 import { useDispatch, useSelector } from 'react-redux';
-// import { appUrl } from '../network';
 
 const Catalog = () => {
   const dispatch = useDispatch();
@@ -25,7 +23,6 @@ const Catalog = () => {
   };
   React.useEffect(() => {
     getItems();
-    // axios.get(`${appUrl.APP_URL}/vynils`).then((res) => setItem(res.data));
   }, [category]);
 
   const vynils = items.map((obj) => <Card key={obj.id} {...obj} />);

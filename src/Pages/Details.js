@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import arrow from '../arrow.svg';
 import { Footer, Header } from '../Components';
 
 const Details = () => {

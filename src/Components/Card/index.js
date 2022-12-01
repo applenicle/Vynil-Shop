@@ -7,17 +7,16 @@ import { addItem } from '../../redux/CartSlice/slice';
 
 const Card = ({ id, price, imageUrl, title, year }) => {
   const dispatch = useDispatch();
-  const item = {
-    id,
-    price,
-    imageUrl,
-    title,
-    year,
-    count: 0,
-  };
-  const addToCart = () => {
-    console.log(dispatch(addItem(item)));
 
+  const addToCart = () => {
+    const item = {
+      id,
+      price,
+      imageUrl,
+      title,
+      year,
+      count: 0,
+    };
     dispatch(addItem(item));
   };
 
@@ -33,7 +32,9 @@ const Card = ({ id, price, imageUrl, title, year }) => {
             <span>Цена :</span>
             <h3>{price} ₽</h3>
           </div>
-          <img onClick={addToCart} className={styles.cardIcon} src={cart} alt="icon" />
+          <div className={styles.cardIcon}>
+            <img onClick={addToCart} src={cart} alt="icon" />
+          </div>
         </div>
       </div>
     </div>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearCart } from '../redux/CartSlice/slice';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { CartComponent } from '../Components';
 
@@ -81,7 +80,7 @@ const Cart = () => {
               Всего пластинок: <b>{count} шт.</b>
             </span>
             <span>
-              Сумма заказа: <b>{Math.floor(price * 100) / 100} ₽</b>
+              Сумма заказа: <b>{price} ₽</b>
             </span>
           </div>
           <div className="pay-btn">

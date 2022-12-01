@@ -1,18 +1,17 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './CartItem.module.scss';
-import { removeItem, addItem } from '../../redux/CartSlice/slice';
+import { removeItem, addItem, minusItem } from '../../redux/CartSlice/slice';
 
-const CartComponent = ({ id, count, price, imageUrl, title, year }) => {
+const CartComponent = ({ id, count, imageUrl, price, title, year }) => {
   const dispatch = useDispatch();
-  const { value } = useSelector((state) => state.CartReducer);
+
   const setAddItem = () => {
     const item = {
       id,
+      title,
       price,
       imageUrl,
-      title,
-      year,
       count: 0,
     };
     dispatch(addItem(item));
@@ -20,15 +19,18 @@ const CartComponent = ({ id, count, price, imageUrl, title, year }) => {
   const setRemoveItem = () => {
     const item = {
       id,
+      title,
       price,
       imageUrl,
-      title,
-      year,
       count,
     };
-    dispatch(addItem(item));
+    dispatch(minusItem(item));
   };
-
+  const onClickRemove = () => {
+    if (window.confirm('Ты действительно хочешь удалить товар?')) {
+      dispatch(removeItem(id));
+    }
+  };
   return (
     <div className={styles.cartItem}>
       <div className={styles.cartImg}>
@@ -39,14 +41,16 @@ const CartComponent = ({ id, count, price, imageUrl, title, year }) => {
         <p>{year}</p>
       </div>
       <div className={styles.cartCounter}>
-        <button onClick={setRemoveItem}>-</button>
+        <button disabled={count === 1} onClick={setRemoveItem}>
+          -
+        </button>
         <b>{count}</b>
         <button onClick={setAddItem}>+</button>
       </div>
       <div className={styles.cartPrice}>
         <b>{price} ₽</b>
       </div>
-      <div className={styles.cartRemove}>
+      <div onClick={onClickRemove} className={styles.cartRemove}>
         <svg
           width="10"
           height="10"

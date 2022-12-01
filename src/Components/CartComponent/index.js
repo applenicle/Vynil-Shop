@@ -3,10 +3,32 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from './CartItem.module.scss';
 import { removeItem, addItem } from '../../redux/CartSlice/slice';
 
-const CartComponent = ({ price, imageUrl, title, year }) => {
-  // const [counter, setCounter] = React.useState(0);
+const CartComponent = ({ id, count, price, imageUrl, title, year }) => {
   const dispatch = useDispatch();
   const { value } = useSelector((state) => state.CartReducer);
+  const setAddItem = () => {
+    const item = {
+      id,
+      price,
+      imageUrl,
+      title,
+      year,
+      count: 0,
+    };
+    dispatch(addItem(item));
+  };
+  const setRemoveItem = () => {
+    const item = {
+      id,
+      price,
+      imageUrl,
+      title,
+      year,
+      count,
+    };
+    dispatch(addItem(item));
+  };
+
   return (
     <div className={styles.cartItem}>
       <div className={styles.cartImg}>
@@ -17,9 +39,9 @@ const CartComponent = ({ price, imageUrl, title, year }) => {
         <p>{year}</p>
       </div>
       <div className={styles.cartCounter}>
-        <button onClick={() => dispatch(removeItem(value))}>-</button>
-        <b>{value}</b>
-        <button onClick={() => dispatch(addItem(value))}>+</button>
+        <button onClick={setRemoveItem}>-</button>
+        <b>{count}</b>
+        <button onClick={setAddItem}>+</button>
       </div>
       <div className={styles.cartPrice}>
         <b>{price} ₽</b>

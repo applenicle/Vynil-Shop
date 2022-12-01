@@ -1,9 +1,26 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import cart from '../../cart.svg';
 import styles from './Card.module.scss';
+import { addItem } from '../../redux/CartSlice/slice';
 
-const Card = ({ price, imageUrl, title, country, id }) => {
+const Card = ({ id, price, imageUrl, title, year }) => {
+  const dispatch = useDispatch();
+  const item = {
+    id,
+    price,
+    imageUrl,
+    title,
+    year,
+    count: 0,
+  };
+  const addToCart = () => {
+    console.log(dispatch(addItem(item)));
+
+    dispatch(addItem(item));
+  };
+
   return (
     <div className={styles.card}>
       <Link to={`/details/${id}`}>
@@ -16,7 +33,7 @@ const Card = ({ price, imageUrl, title, country, id }) => {
             <span>Цена :</span>
             <h3>{price} ₽</h3>
           </div>
-          <img className={styles.cardIcon} src={cart} alt="" />
+          <img onClick={addToCart} className={styles.cardIcon} src={cart} alt="icon" />
         </div>
       </div>
     </div>

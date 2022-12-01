@@ -1,7 +1,12 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './CartItem.module.scss';
+import { removeItem, addItem } from '../../redux/CartSlice/slice';
 
-const CartItem = ({ price, imageUrl, title, year }) => {
+const CartComponent = ({ price, imageUrl, title, year }) => {
+  // const [counter, setCounter] = React.useState(0);
+  const dispatch = useDispatch();
+  const { value } = useSelector((state) => state.CartReducer);
   return (
     <div className={styles.cartItem}>
       <div className={styles.cartImg}>
@@ -12,9 +17,9 @@ const CartItem = ({ price, imageUrl, title, year }) => {
         <p>{year}</p>
       </div>
       <div className={styles.cartCounter}>
-        <button>-</button>
-        <b>4</b>
-        <button>+</button>
+        <button onClick={() => dispatch(removeItem(value))}>-</button>
+        <b>{value}</b>
+        <button onClick={() => dispatch(addItem(value))}>+</button>
       </div>
       <div className={styles.cartPrice}>
         <b>{price} ₽</b>
@@ -38,4 +43,4 @@ const CartItem = ({ price, imageUrl, title, year }) => {
   );
 };
 
-export default CartItem;
+export default CartComponent;

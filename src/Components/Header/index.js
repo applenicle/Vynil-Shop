@@ -3,9 +3,6 @@ import { Link } from 'react-router-dom';
 import logo from './logo.svg';
 import styles from './Header.module.scss';
 
-{
-}
-
 const Header = () => {
   return (
     <header className={styles.Header}>
@@ -14,20 +11,20 @@ const Header = () => {
           <nav className={styles.HeaderMenu}>
             <ul className={styles.HeaderList}>
               <li className={styles.HeaderItem}>
-                <Link to="/Catalog" className={styles.HeaderLink}>
-                  Каталог
+                <Link to="/Trade" className={styles.HeaderLink}>
+                  Возврат
                 </Link>
               </li>
               <li className={styles.HeaderItem}>
-                <Link to="/Trade" className={styles.HeaderLink}>
-                  Возврат
+                <Link to="/Catalog" className={styles.HeaderLink}>
+                  Каталог
                 </Link>
               </li>
             </ul>
           </nav>
           <Link to="/" className={styles.HeaderLogo}>
             <img src={logo} alt="logo" />
-            MrPlastin4ka
+            MrPlastinо4ka
           </Link>
           <nav className={styles.HeaderMenu}>
             <ul className={styles.HeaderList}>

@@ -1,22 +1,34 @@
 import React from 'react';
 import axios from 'axios';
-import { Card, Categories, Footer, Header } from '../Components';
+import { Card, Footer, Categories, Header } from '../Components';
+import { fetchItems } from '../redux/ItemSlice/asyncAction';
+import { setCategory } from '../redux/CategorySlice/slice';
+import { useDispatch, useSelector } from 'react-redux';
+// import { appUrl } from '../network';
 
 const Catalog = () => {
-  const [item, setItem] = React.useState([]);
-  const [category, setCategory] = React.useState(0);
-
+  const dispatch = useDispatch();
+  const { items, status } = useSelector((state) => state.ItemsReducer);
+  const { category } = useSelector((state) => state.CategoryReducer);
   const ChangeCategory = React.useCallback((numberCategory) => {
-    setCategory(numberCategory);
+    dispatch(setCategory(numberCategory));
   }, []);
 
-  React.useEffect(() => {
+  const getItems = async () => {
     const categories = category > 0 ? `category=${category}` : '';
-    axios.get(`https://62c96901d9ead251e8bb4e90.mockapi.io/f?${categories}`).then((data) => {
-      console.log(data.data);
-      return setItem(data.data);
-    });
+    dispatch(
+      fetchItems({
+        categories,
+      }),
+    );
+    window.scrollTo(0, 0);
+  };
+  React.useEffect(() => {
+    getItems();
+    // axios.get(`${appUrl.APP_URL}/vynils`).then((res) => setItem(res.data));
   }, [category]);
+
+  const vynils = items.map((obj) => <Card key={obj.id} {...obj} />);
 
   return (
     <div>
@@ -24,11 +36,11 @@ const Catalog = () => {
       <div className="container">
         <Categories category={category} onClickCategory={ChangeCategory} />
         <h3 className="card__title">Пластинки</h3>
-        <div className="wrapper">
-          {item.map((obj) => (
-            <Card className="card__inner" key={obj.id} {...obj} />
-          ))}
-        </div>
+        {status === 'error' ? (
+          <div>Ошибка</div>
+        ) : (
+          <div className="wrapper">{status === 'loading' ? <>Loading</> : vynils}</div>
+        )}
       </div>
       <Footer />
     </div>

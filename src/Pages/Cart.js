@@ -1,17 +1,15 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { clearCart } from '../redux/CartSlice/slice';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { CartItem } from '../Components';
+import { CartComponent } from '../Components';
 
 const Cart = () => {
-  const [item, setItem] = React.useState([]);
-  React.useEffect(() => {
-    axios.get(`https://62c96901d9ead251e8bb4e90.mockapi.io/f`).then((data) => {
-      console.log(data.data);
-      return setItem(data.data);
-    });
-  }, []);
+  const dispatch = useDispatch();
+  const { cartItem, price, count } = useSelector((state) => state.CartReducer);
 
+  if (!price) return <>Твоя корзина пуста</>;
   return (
     <div className="container container--cart">
       <div className="cart">
@@ -69,21 +67,21 @@ const Cart = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"></path>
             </svg>
-            <span>Очистить корзину</span>
+            <span onClick={() => dispatch(clearCart())}>Очистить корзину</span>
           </div>
         </div>
         <div className="content__items">
-          {item.map((obj) => (
-            <CartItem key={obj.id} {...obj} />
+          {cartItem?.map((obj) => (
+            <CartComponent key={obj.id} {...obj} />
           ))}
         </div>
         <div className="cart__bottom">
           <div className="cart__bottom-details">
             <span>
-              Всего пластинок: <b>1 шт.</b>
+              Всего пластинок: <b>{count} шт.</b>
             </span>
             <span>
-              Сумма заказа: <b>4000 ₽</b>
+              Сумма заказа: <b>{Math.floor(price * 100) / 100} ₽</b>
             </span>
           </div>
           <div className="pay-btn">

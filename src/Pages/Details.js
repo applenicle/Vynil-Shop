@@ -2,21 +2,28 @@ import React from 'react';
 import axios from 'axios';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Footer, Header } from '../Components';
+import { addItem } from '../redux/CartSlice/slice';
+import { useDispatch } from 'react-redux';
 
 const Details = () => {
   let { id } = useParams();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [vynil, setVynil] = React.useState({});
-  // const navigate = useNavigate();
+  const addToCart = () => {
+    dispatch(addItem(vynil));
+  };
 
   React.useEffect(() => {
-    // try {
-    axios.get(`https://62c96901d9ead251e8bb4e90.mockapi.io/f/` + id).then((data) => {
-      console.log(data.data);
-      return setVynil(data.data);
-    });
-    // } catch (error) {
-    // navigate(`/`);
-    // }
+    async function fetchItems() {
+      try {
+        const { data } = await axios.get(`https://62c96901d9ead251e8bb4e90.mockapi.io/f/` + id);
+        return setVynil(data);
+      } catch (error) {
+        navigate(`/`);
+      }
+    }
+    fetchItems();
   }, []);
 
   return (
@@ -28,7 +35,7 @@ const Details = () => {
             <img src={vynil.imageUrl} alt={vynil.title} />
           </div>
           <div className="details__inner">
-            <Link to="/">
+            <Link to="/catalog">
               <svg
                 className="details__arrow"
                 xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +60,9 @@ const Details = () => {
             </ul>
             <div className="details__btn">
               <div>{vynil.price} ₽</div>
-              <Link to="/">Купить пластинку</Link>
+              <Link onClick={addToCart} to="/cart">
+                Купить пластинку
+              </Link>
             </div>
           </div>
         </div>

@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { clearCart } from '../redux/CartSlice/slice';
 import { Link } from 'react-router-dom';
 import { CartComponent } from '../Components';
+import EmptyCart from './EmptyCart';
 
 const Cart = () => {
   const dispatch = useDispatch();
   const { cartItem, price, count } = useSelector((state) => state.CartReducer);
 
-  if (!price) return <>Твоя корзина пуста</>;
+  if (!price) return <EmptyCart>Твоя корзина пуста</EmptyCart>;
   return (
     <div className="container container--cart">
       <div className="cart">
